@@ -40,3 +40,9 @@ void Student::on_radioButton_score_clicked()
     model->setFilter(QString("stu_id=%1").arg(id));
     model->select();
 }
+
+void Student::on_pushButton_back_clicked()
+{
+    back = true;
+    close();
+}

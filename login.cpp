@@ -41,7 +41,7 @@ void Login::on_radioButton_tech_clicked()
     {
         acc_pw.insert(query.value(1).toString(),query.value(2).toString());
     }
-
+    qDebug() << acc_pw;
 }
 
 void Login::on_radioButton_stu_clicked()

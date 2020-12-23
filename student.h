@@ -20,12 +20,15 @@ public:
     explicit Student(QWidget *parent = nullptr);
     ~Student();
     int id;
+    bool back = false;
     void connectdb(QString dbname);
 
 private slots:
     void on_radioButton_info_clicked();
 
     void on_radioButton_score_clicked();
+
+    void on_pushButton_back_clicked();
 
 private:
     Ui::Student *ui;
