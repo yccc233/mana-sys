@@ -20,14 +20,13 @@ int main(int argc, char *argv[])
         Admin *a;
         switch (l.NextUI) {
         case 1:
-            a->id = l.id;
+            a = new Admin;
             a->show();
             e.exec();
             if(!a->back) return 0;
             break;
         case 2:
             t = new Teacher(NULL,l.id);
-
             t->show();
             e.exec();
             if(!t->back) return 0;
