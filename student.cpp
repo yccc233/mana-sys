@@ -1,8 +1,8 @@
 #include "student.h"
 #include "ui_student.h"
 
-Student::Student(QWidget *parent) :
-    QMainWindow(parent),
+Student::Student(QWidget *parent, QString id) :
+    QMainWindow(parent),id(id),
     ui(new Ui::Student)
 {
     ui->setupUi(this);

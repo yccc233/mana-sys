@@ -14,7 +14,7 @@ class Admin : public QMainWindow
 public:
     explicit Admin(QWidget *parent = nullptr);
     ~Admin();
-    int id;
+    QString id;
     bool back = false;
 
 private slots:

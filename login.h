@@ -20,7 +20,7 @@ public:
     Login(QWidget *parent = nullptr);
     ~Login();
     int NextUI = 0;//0 退出， 1、2、3分别对应管理员、教师、学生
-    int id;
+    QString id;
     void connectdb(QString dbname);
 
 private slots:

@@ -17,9 +17,9 @@ class Student : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Student(QWidget *parent = nullptr);
+    explicit Student(QWidget *parent = nullptr, QString id = NULL);
     ~Student();
-    int id;
+    QString id;
     bool back = false;
     void connectdb(QString dbname);
 

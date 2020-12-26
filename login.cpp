@@ -75,8 +75,8 @@ void Login::on_pushButton_login_clicked()
 
     if(acc_pw.contains(account) && acc_pw.find(account).value() == password)
     {
+        id = account;
         close();
-        id = account.toInt();
     }
     else
     {
