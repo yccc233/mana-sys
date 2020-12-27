@@ -50,8 +50,3 @@ void Admin::on_radioButton_stu_clicked()
     model->setTable("stu_acc");
     model->select();
 }
-
-void Admin::on_pushButton_del_clicked()
-{
-
-}
