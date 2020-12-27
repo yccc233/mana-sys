@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QSqlError>
 #include <QSqlTableModel>
+#include <QInputDialog>
 
 namespace Ui {
 class Admin;
@@ -30,6 +31,12 @@ private slots:
     void on_radioButton_tea_clicked();
 
     void on_radioButton_stu_clicked();
+
+    void on_pushButton_del_clicked();
+
+    void on_tableView_doubleClicked(const QModelIndex &index);
+
+    void on_pushButton_add_clicked();
 
 private:
     Ui::Admin *ui;
