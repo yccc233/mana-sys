@@ -6,6 +6,14 @@ Login::Login(QWidget *parent)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
+    //界面优化
+    setWindowFlag(Qt::FramelessWindowHint);
+    ui->lineEdit_acc->setPlaceholderText(" //输入账号");
+    ui->lineEdit_pw->setPlaceholderText(" //输入密码");
+    QPixmap labelmap(QString("%1/src/img/head.jpg").arg(QCoreApplication::applicationDirPath()));
+    ui->label_pic->setPixmap(labelmap);
+    ui->label_pic->setScaledContents(true);
+    ui->label_pic->adjustSize();
 
     connectdb("SYS_MAN.db");
     ui->radioButton_stu->setChecked(true);
