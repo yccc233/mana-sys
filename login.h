@@ -9,6 +9,8 @@
 #include <QMap>
 #include <QPalette>
 #include <QCoreApplication>
+#include <QStandardItemModel>
+#include <QCompleter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -36,9 +38,13 @@ private slots:
 
     void on_pushButton_quit_clicked();
 
+    void on_lineEdit_acc_textChanged(const QString &arg1);
+
 private:
     Ui::Login *ui;
     QSqlDatabase db;
     QMap<QString,QString> acc_pw;
+    QStringList linelist;
+    QStandardItemModel *model;
 };
 #endif // LOGIN_H

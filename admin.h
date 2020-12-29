@@ -26,6 +26,9 @@ public:
 
 private slots:
     void on_pushButton_back_clicked();
+
+    void setHeadData();
+
     void showAccMsg();
 
     void on_radioButton_tea_clicked();

@@ -19,6 +19,10 @@ Login::Login(QWidget *parent)
     connectdb("SYS_MAN.db");
     ui->radioButton_stu->setChecked(true);
     emit ui->radioButton_stu->clicked(true);
+
+    //申明下拉框
+    model = new QStandardItemModel(0,1,this);
+    ui->lineEdit_acc->setCompleter(new QCompleter(model,this));
 }
 
 Login::~Login()
@@ -45,23 +49,30 @@ void Login::on_radioButton_admin_clicked()
 void Login::on_radioButton_tech_clicked()
 {
     acc_pw.clear();
+    linelist.clear();
     QSqlQuery query(db);
-    if(query.exec("select * from teach_acc"))
+    if(!query.exec("select * from teach_acc"))
+        QMessageBox::warning(this,"错误","数据检索失败!\n"+query.lastError().text());
     while(query.next())
     {
         acc_pw.insert(query.value(1).toString(),query.value(2).toString());
+        linelist.append(query.value(1).toString());
     }
     qDebug() << acc_pw;
+    qDebug() << linelist;
 }
 
 void Login::on_radioButton_stu_clicked()
 {
     acc_pw.clear();
+    linelist.clear();
     QSqlQuery query(db);
-    if(query.exec("select * from stu_acc"))
+    if(!query.exec("select * from stu_acc"))
+         QMessageBox::warning(this,"错误","数据检索失败!\n"+query.lastError().text());
     while(query.next())
     {
         acc_pw.insert(query.value(1).toString(),query.value(2).toString());
+        linelist.append(query.value(1).toString());
     }
     qDebug() << acc_pw;
 }
@@ -99,4 +110,17 @@ void Login::on_pushButton_quit_clicked()
 {
     NextUI = 0;
     close();
+}
+
+void Login::on_lineEdit_acc_textChanged(const QString &arg1)
+{
+    model->removeRows(0,model->rowCount());
+    for(int i=0;i<linelist.size();i++)
+    {
+        if(linelist[i].contains(arg1))
+        {
+            model->insertRow(0);
+            model->setData(model->index(0,0),linelist[i]);
+        }
+    }
 }

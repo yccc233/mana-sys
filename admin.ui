@@ -6,18 +6,51 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>565</width>
+    <width>542</width>
     <height>420</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>542</width>
+    <height>420</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>542</width>
+    <height>420</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#pushButton_add,#pushButton_del,#pushButton_back{
+background:white;
+border-radius:5px;
+}
+
+#pushButton_add:hover,#pushButton_del:hover,#pushButton_back:hover{
+background:aqua;
+border-radius:5px;
+}
+
+#pushButton_add:pressed,#pushButton_del:pressed,#pushButton_back:pressed{
+background:blue;
+border-radius:5px;
+}
+
+QTableView{
+	font: 13pt &quot;HanziPen SC&quot;;
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_back">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>410</x>
       <y>370</y>
       <width>113</width>
       <height>32</height>
@@ -30,7 +63,7 @@
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>50</y>
       <width>501</width>
       <height>301</height>
@@ -40,7 +73,7 @@
    <widget class="QRadioButton" name="radioButton_tea">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>300</x>
       <y>20</y>
       <width>99</width>
       <height>20</height>
@@ -53,7 +86,7 @@
    <widget class="QRadioButton" name="radioButton_stu">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>420</x>
       <y>20</y>
       <width>99</width>
       <height>20</height>
@@ -66,7 +99,7 @@
    <widget class="QPushButton" name="pushButton_add">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>370</y>
       <width>113</width>
       <height>32</height>
@@ -79,7 +112,7 @@
    <widget class="QPushButton" name="pushButton_del">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>150</x>
       <y>370</y>
       <width>113</width>
       <height>32</height>
@@ -92,7 +125,7 @@
    <widget class="QRadioButton" name="radioButton_tea_acc">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>20</y>
       <width>115</width>
       <height>19</height>
@@ -105,7 +138,7 @@
    <widget class="QRadioButton" name="radioButton_stu_acc">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>140</x>
       <y>20</y>
       <width>115</width>
       <height>19</height>

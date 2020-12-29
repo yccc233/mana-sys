@@ -59,7 +59,7 @@ void Teacher::setHeadData()
 {
     QStringList heads;
     QVector<int> sizes;
-    heads << "id" << "学生账号" << "科目" << "成绩";
+    heads << "id" << "学生学号" << "科目" << "成绩";
     sizes << 80 << 80 << 40 << 40;
     for(int i=0;i<heads.size();i++)
         model->setHeaderData(i,Qt::Horizontal,heads[i]);
@@ -91,7 +91,8 @@ void Teacher::on_pushButton_info_clicked()
 void Teacher::on_tableView_doubleClicked(const QModelIndex &index)
 {
     bool isOk;
-    QString ipAdress = QInputDialog::getText(NULL,"修改","输入修改后的值",QLineEdit::Normal,model->index(index.row(),index.column()).data().toString(),&isOk);
+    QString ipAdress = QInputDialog::getText(NULL,"修改","输入修改后的值",QLineEdit::Normal,
+                                             model->index(index.row(),index.column()).data().toString(),&isOk);
     if(!isOk)
         return;
     model->setData(index,ipAdress);

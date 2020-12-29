@@ -10,6 +10,9 @@ Admin::Admin(QWidget *parent) :
 
     model = new QSqlTableModel(this);
     ui->tableView->setModel(model);
+
+    setWindowTitle("管理员系统");
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 Admin::~Admin()
@@ -33,6 +36,31 @@ void Admin::showAccMsg()
 
 }
 
+void Admin::setHeadData()
+{
+    QStringList heads;
+    QVector<int> sizes;
+    if(ui->radioButton_stu->isChecked())
+    {
+        heads << "id" << "学号" << "学生姓名" << "性别";
+        sizes << 80 << 80 << 80 << 40;
+    }
+    else if(ui->radioButton_tea->isChecked())
+    {
+        heads << "id" << "教师号" << "姓名" << "性别" << "电话" << "授课";
+        sizes << 80 << 80 << 80 << 40 << 100 << 50;
+    }
+    else
+    {
+        heads << "id" << "账号" << "密码";
+        sizes << 80 << 80 << 80;
+    }
+    for(int i=0;i<heads.size();i++)
+        model->setHeaderData(i,Qt::Horizontal,heads[i]);
+    for(int i=0;i<sizes.size();i++)
+        ui->tableView->setColumnWidth(i,sizes[i]);
+}
+
 void Admin::on_pushButton_back_clicked()
 {
     back = true;
@@ -43,24 +71,28 @@ void Admin::on_radioButton_tea_acc_clicked()     //*****开始修改
 {
     model->setTable("teach_acc");
     model->select();
+    setHeadData();
 }
 
 void Admin::on_radioButton_stu_acc_clicked()
 {
     model->setTable("stu_acc");
     model->select();
+    setHeadData();
 }                                                //****结束
 
 void Admin::on_radioButton_tea_clicked()
 {
     model->setTable("teach_info");
     model->select();
+    setHeadData();
 }
 
 void Admin::on_radioButton_stu_clicked()
 {
     model->setTable("stu_info");
     model->select();
+    setHeadData();
 }
 
 void Admin::on_pushButton_del_clicked()
@@ -73,6 +105,7 @@ void Admin::on_pushButton_del_clicked()
         model->removeRow(ui->tableView->currentIndex().row());
         model->submit();
         model->select();
+        setHeadData();
     }
 }
 
@@ -114,7 +147,7 @@ void Admin::on_pushButton_add_clicked()
     {
         model->setData(model->index(row,i),ins[i]);
     }
-    model->submit();
+    model->submitAll();
     model->select();
 }
 
