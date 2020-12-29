@@ -2,25 +2,61 @@
 <ui version="4.0">
  <class>Login</class>
  <widget class="QMainWindow" name="Login">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>442</width>
-    <height>344</height>
+    <width>325</width>
+    <height>281</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Login</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#pushButton_login,#pushButton_quit{
+background:white;
+border-radius:5px;
+}
+
+#pushButton_login:hover,#pushButton_quit:hover{
+background:aqua;
+border-radius:5px;
+}
+
+#pushButton_login:pressed,#pushButton_quit:pressed{
+background:blue;
+border-radius:5px;
+}
+
+QLineEdit{
+border-radius:3px;
+}
+
+QLineEdit:hover{
+border-radius:3px;
+border:1px solid lightskyblue;
+}
+
+#label_3:hover,#label_4:hover,#label_5:hover{
+color:red;
+}
+
+#Login{
+background:qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(255, 255, 255, 255), stop:0.258706 rgba(255, 249, 249, 255), stop:1 rgba(227, 253, 245, 255))
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>331</width>
-      <height>241</height>
+      <x>20</x>
+      <y>70</y>
+      <width>281</width>
+      <height>201</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -28,6 +64,9 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QRadioButton" name="radioButton_admin">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="text">
           <string>管理员</string>
          </property>
@@ -35,6 +74,9 @@
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton_tech">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="text">
           <string>教师</string>
          </property>
@@ -42,6 +84,9 @@
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton_stu">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="text">
           <string>学生</string>
          </property>
@@ -76,7 +121,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_pw"/>
+        <widget class="QLineEdit" name="lineEdit_pw">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -84,6 +133,9 @@
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QPushButton" name="pushButton_login">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="text">
           <string>登录</string>
          </property>
@@ -107,6 +159,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_quit">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="text">
           <string>退出</string>
          </property>
@@ -115,6 +170,58 @@
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>B170402.......</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>B170402.......</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>B17040224—俞澄</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_pic">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>10</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
  </widget>

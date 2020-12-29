@@ -7,6 +7,8 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QMap>
+#include <QPalette>
+#include <QCoreApplication>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
