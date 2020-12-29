@@ -91,7 +91,7 @@ void Login::on_pushButton_login_clicked()
     else
     {
         QMessageBox::warning(this,"err","账号或密码错误！");
-        ui->lineEdit_pw->clear();                             //清空输入框
+        ui->lineEdit_pw->clear();
     }
 }
 

@@ -6,19 +6,40 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>533</width>
-    <height>394</height>
+    <width>479</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#pushButton_back{
+background:white;
+border-radius:5px;
+}
+
+#pushButton_back:hover{
+background:aqua;
+border-radius:5px;
+}
+
+#pushButton_back:pressed{
+background:blue;
+border-radius:5px;
+}
+
+QTableView{
+	font: 13pt &quot;HanziPen SC&quot;;
+}
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>60</y>
+      <x>10</x>
+      <y>50</y>
       <width>461</width>
       <height>281</height>
      </rect>
@@ -27,8 +48,8 @@
    <widget class="QRadioButton" name="radioButton_info">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>30</y>
+      <x>10</x>
+      <y>20</y>
       <width>99</width>
       <height>20</height>
      </rect>
@@ -40,9 +61,9 @@
    <widget class="QRadioButton" name="radioButton_score">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>30</y>
-      <width>99</width>
+      <x>400</x>
+      <y>20</y>
+      <width>71</width>
       <height>20</height>
      </rect>
     </property>
@@ -53,7 +74,7 @@
    <widget class="QPushButton" name="pushButton_back">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>350</x>
       <y>350</y>
       <width>113</width>
       <height>32</height>

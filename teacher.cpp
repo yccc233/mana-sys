@@ -34,6 +34,8 @@ Teacher::Teacher(QWidget *parent, QString id) :
                            .arg(query->record().value("teach_tele").toString())
                            .arg(query->record().value("teach_course").toString())
                            );
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
 }
 
 Teacher::~Teacher()
@@ -50,6 +52,19 @@ void Teacher::showStuScore()
         model->removeColumns(2*i,2);
     }
     model->select();
+    setHeadData();
+}
+
+void Teacher::setHeadData()
+{
+    QStringList heads;
+    QVector<int> sizes;
+    heads << "id" << "学生账号" << "科目" << "成绩";
+    sizes << 80 << 80 << 40 << 40;
+    for(int i=0;i<heads.size();i++)
+        model->setHeaderData(i,Qt::Horizontal,heads[i]);
+    for(int i=0;i<sizes.size();i++)
+        ui->tableView->setColumnWidth(i,sizes[i]);
 }
 
 void Teacher::connectdb(QString dbname)
@@ -85,6 +100,8 @@ void Teacher::on_tableView_doubleClicked(const QModelIndex &index)
 
 void Teacher::on_pushButton_sea_clicked()
 {    
+    if(ui->lineEdit->text().isEmpty())
+        return;
     model->setFilter(QString("stu_id='%1'").arg(ui->lineEdit->text()));
     model->select();
 }
