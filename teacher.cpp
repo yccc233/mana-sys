@@ -82,3 +82,8 @@ void Teacher::on_lineEdit_textChanged(const QString &arg1)
         showStuScore();
     }
 }
+
+void Teacher::on_show_info_linkActivated(const QString &link)
+{
+
+}

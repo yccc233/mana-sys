@@ -1,5 +1,6 @@
 #include "login.h"
 #include "ui_login.h"
+#include "qdebug.h"
 
 Login::Login(QWidget *parent)
     : QMainWindow(parent)
@@ -9,6 +10,7 @@ Login::Login(QWidget *parent)
 
     connectdb("SYS_MAN.db");
     ui->radioButton_stu->setChecked(true);
+    emit ui->radioButton_stu->clicked(true);
 }
 
 Login::~Login()
@@ -81,11 +83,14 @@ void Login::on_pushButton_login_clicked()
     else
     {
         QMessageBox::warning(this,"err","账号或密码错误！");
-        ui->lineEdit_pw->clear();
+        ui->lineEdit_pw->clear();                             //清空输入框
     }
 }
 
 void Login::on_pushButton_quit_clicked()
 {
+    while(true)                                             //关闭所有窗口
+    {
     close();
+    }
 }

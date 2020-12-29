@@ -40,6 +40,8 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+    void on_show_info_linkActivated(const QString &link);
+
 private:
     Ui::Teacher *ui;
     QSqlDatabase db;
