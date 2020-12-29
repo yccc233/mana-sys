@@ -24,7 +24,7 @@ public:
     ~Teacher();
     QString id;
     bool back = false;
-    int course;
+    int courseid;
     void connectdb(QString dbname);
 
 private slots:
