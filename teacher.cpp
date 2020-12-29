@@ -6,7 +6,7 @@ Teacher::Teacher(QWidget *parent, QString id) :
     ui(new Ui::Teacher)
 {
     ui->setupUi(this);
-
+    setWindowTitle("教师管理系统");
     connectdb("SYS_MAN.db");
 
     //获取教师教学courseid
@@ -26,6 +26,14 @@ Teacher::Teacher(QWidget *parent, QString id) :
     model = new QSqlTableModel(this,db);
     ui->tableView->setModel(model);
     showStuScore();
+
+    ui->show_info->setText(QString("\t教师id:%1\t姓名:%2\n\n\t性别:%3\t电话号码:%4\t授课:%5")
+                           .arg(query->record().value("teach_id").toString())
+                           .arg(query->record().value("teach_name").toString())
+                           .arg(query->record().value("teach_gender").toString())
+                           .arg(query->record().value("teach_tele").toString())
+                           .arg(query->record().value("teach_course").toString())
+                           );
 }
 
 Teacher::~Teacher()
@@ -76,9 +84,8 @@ void Teacher::on_tableView_doubleClicked(const QModelIndex &index)
 }
 
 void Teacher::on_pushButton_sea_clicked()
-{
-    QString filter = ui->lineEdit->text();
-    model->setFilter(QString("stu_id=%1").arg(filter));
+{    
+    model->setFilter(QString("stu_id='%1'").arg(ui->lineEdit->text()));
     model->select();
 }
 
@@ -88,9 +95,4 @@ void Teacher::on_lineEdit_textChanged(const QString &arg1)
     {
         showStuScore();
     }
-}
-
-void Teacher::on_show_info_linkActivated(const QString &link)
-{
-
 }

@@ -176,9 +176,14 @@ background:qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(255, 
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>121</width>
+      <width>101</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>B170402.......</string>
@@ -189,9 +194,14 @@ background:qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(255, 
      <rect>
       <x>20</x>
       <y>30</y>
-      <width>121</width>
+      <width>101</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>B170402.......</string>
@@ -202,9 +212,14 @@ background:qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(255, 
      <rect>
       <x>20</x>
       <y>50</y>
-      <width>121</width>
+      <width>101</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>B17040224—俞澄</string>
