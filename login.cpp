@@ -97,8 +97,6 @@ void Login::on_pushButton_login_clicked()
 
 void Login::on_pushButton_quit_clicked()
 {
-    while(true)                                             //关闭所有窗口
-    {
+    NextUI = 0;
     close();
-    }
 }
