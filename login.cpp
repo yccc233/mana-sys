@@ -17,6 +17,7 @@ Login::Login(QWidget *parent)
 
     connectdb("SYS_MAN.db");
     ui->radioButton_stu->setChecked(true);
+    emit ui->radioButton_stu->clicked(true);
 }
 
 Login::~Login()
