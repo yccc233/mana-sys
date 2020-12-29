@@ -11,10 +11,17 @@ Teacher::Teacher(QWidget *parent, QString id) :
 
     //获取教师教学courseid
     query = new QSqlQuery(db);
-    query->exec(QString("select * from teach_info where teach_id=%1;").arg(id));
-    query->next();
-    course = query->record().value("teach_course").toLongLong();
 
+    query->exec(QString("select * from teach_info where teach_id='%1';").arg(id));
+    query->next();
+
+    QString course = query->record().value("teach_course").toString();
+    if(course == "语文")
+        courseid = 1;
+    else if(course == "数学")
+        courseid = 2;
+    else
+        courseid = 3;
 
     model = new QSqlTableModel(this,db);
     ui->tableView->setModel(model);
@@ -31,7 +38,7 @@ void Teacher::showStuScore()
     model->setTable("stu_score");
     for(int i=3;i>=1;i--)
     {
-        if(course == i) continue;
+        if(courseid == i) continue;
         model->removeColumns(2*i,2);
     }
     model->select();
