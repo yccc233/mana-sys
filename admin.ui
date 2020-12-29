@@ -40,7 +40,7 @@
    <widget class="QRadioButton" name="radioButton_tea">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>320</x>
       <y>20</y>
       <width>99</width>
       <height>20</height>
@@ -87,6 +87,32 @@
     </property>
     <property name="text">
      <string>删除</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_tea_acc">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>115</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>教师账号</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_stu_acc">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>20</y>
+      <width>115</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>学生账号</string>
     </property>
    </widget>
   </widget>

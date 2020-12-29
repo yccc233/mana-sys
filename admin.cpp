@@ -39,6 +39,18 @@ void Admin::on_pushButton_back_clicked()
     close();
 }
 
+void Admin::on_radioButton_tea_acc_clicked()     //*****开始修改
+{
+    model->setTable("teach_acc");
+    model->select();
+}
+
+void Admin::on_radioButton_stu_acc_clicked()
+{
+    model->setTable("stu_acc");
+    model->select();
+}                                                //****结束
+
 void Admin::on_radioButton_tea_clicked()
 {
     model->setTable("teach_info");
@@ -81,10 +93,14 @@ void Admin::on_pushButton_add_clicked()
         return;
     QStringList ins;
     QStringList head;
-    if(ui->radioButton_stu->isChecked())
+    if(ui->radioButton_stu->isChecked())   //**********************修改
         head << "id" << "学号" << "姓名" << "性别";
-    else
+    else if(ui->radioButton_tea->isChecked())
         head << "id" << "教师号" << "姓名" << "性别" << "电话号码" << "授课名称";
+    else if(ui->radioButton_tea_acc->isChecked())
+        head << "id" << "账户" << "密码";
+    else
+        head << "id" << "账户" << "密码";  //************************结束
     for(int i=0;i<head.size();i++)
     {
         bool isOk;
@@ -101,3 +117,5 @@ void Admin::on_pushButton_add_clicked()
     model->submit();
     model->select();
 }
+
+

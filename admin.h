@@ -38,6 +38,10 @@ private slots:
 
     void on_pushButton_add_clicked();
 
+    void on_radioButton_tea_acc_clicked();
+
+    void on_radioButton_stu_acc_clicked();
+
 private:
     Ui::Admin *ui;
     QSqlDatabase db;
