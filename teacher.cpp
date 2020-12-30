@@ -7,7 +7,7 @@ Teacher::Teacher(QWidget *parent, QString id) :
 {
     ui->setupUi(this);
     setWindowTitle("教师管理系统");
-    connectdb("SYS_MAN.db");
+    connectdb(QString("%1/SYS_MAN.db").arg(QCoreApplication::applicationDirPath()));
 
     //获取教师教学courseid
     query = new QSqlQuery(db);

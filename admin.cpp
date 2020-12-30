@@ -6,7 +6,7 @@ Admin::Admin(QWidget *parent) :
     ui(new Ui::Admin)
 {
     ui->setupUi(this);
-    connectdb("SYS_MAN.db");
+    connectdb(QString("%1/SYS_MAN.db").arg(QCoreApplication::applicationDirPath()));
 
     model = new QSqlTableModel(this);
     ui->tableView->setModel(model);

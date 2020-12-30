@@ -6,7 +6,7 @@ Student::Student(QWidget *parent, QString id) :
     ui(new Ui::Student)
 {
     ui->setupUi(this);
-    connectdb("SYS_MAN.db");
+    connectdb(QString("%1/SYS_MAN.db").arg(QCoreApplication::applicationDirPath()));
     model = new QSqlTableModel(this,db);
 
     ui->tableView->setModel(model);

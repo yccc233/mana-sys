@@ -16,7 +16,7 @@ Login::Login(QWidget *parent)
     ui->label_pic->setScaledContents(true);
     ui->label_pic->adjustSize();
 
-    connectdb("SYS_MAN.db");
+    connectdb(QString("%1/SYS_MAN.db").arg(QCoreApplication::applicationDirPath()));
     ui->radioButton_stu->setChecked(true);
     emit ui->radioButton_stu->clicked(true);
 
