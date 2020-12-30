@@ -13,6 +13,7 @@
 #include <QAction>
 #include <QStandardItemModel>
 #include <QCompleter>
+#include <QHeaderView>
 
 namespace Ui {
 class Teacher;
@@ -44,6 +45,8 @@ private slots:
     void on_lineEdit_textChanged(const QString &arg1);
 
     void setHeadData();
+
+    void setSortWay();
 
 private:
     Ui::Teacher *ui;

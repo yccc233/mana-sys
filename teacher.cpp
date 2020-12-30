@@ -48,6 +48,8 @@ Teacher::Teacher(QWidget *parent, QString id) :
     query->exec("select stu_id from stu_score;");
     while(query->next())
         linelist.append(query->value(0).toString());
+
+    connect(ui->tableView->horizontalHeader(),&QHeaderView::sectionClicked,this,&Teacher::setSortWay);
 }
 
 Teacher::~Teacher()
@@ -139,4 +141,19 @@ void Teacher::on_lineEdit_textChanged(const QString &arg1)
             }
         }
     }
+}
+
+void Teacher::setSortWay()
+{
+    static bool Asc = false;
+    if(Asc)
+    {
+        model->setSort(ui->tableView->currentIndex().column(),Qt::AscendingOrder);
+    }
+    else
+    {
+        model->setSort(ui->tableView->currentIndex().column(),Qt::DescendingOrder);
+    }
+    Asc = !Asc;
+    model->select();
 }
