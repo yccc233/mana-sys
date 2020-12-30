@@ -51,7 +51,9 @@ void Login::connectdb(QString dbname)
 void Login::on_radioButton_admin_clicked()
 {
     acc_pw.clear();
+    linelist.clear();
     acc_pw.insert("root","1111");
+    qDebug() << acc_pw;
 }
 
 void Login::on_radioButton_tech_clicked()
@@ -67,7 +69,6 @@ void Login::on_radioButton_tech_clicked()
         linelist.append(query.value(1).toString());
     }
     qDebug() << acc_pw;
-    qDebug() << linelist;
 }
 
 void Login::on_radioButton_stu_clicked()
