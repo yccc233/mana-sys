@@ -11,7 +11,7 @@ Login::Login(QWidget *parent)
     setWindowFlag(Qt::FramelessWindowHint);
     ui->lineEdit_acc->setPlaceholderText(" //输入账号");
     ui->lineEdit_pw->setPlaceholderText(" //输入密码");
-    QPixmap labelmap(QString("%1/src/img/head.jpg").arg(QCoreApplication::applicationDirPath()));
+    QPixmap labelmap(QString("%1/src/img/login.png").arg(QCoreApplication::applicationDirPath()));
     ui->label_pic->setPixmap(labelmap);
     ui->label_pic->setScaledContents(true);
     ui->label_pic->adjustSize();
@@ -23,6 +23,14 @@ Login::Login(QWidget *parent)
     //申明下拉框
     model = new QStandardItemModel(0,1,this);
     ui->lineEdit_acc->setCompleter(new QCompleter(model,this));
+
+    //图标
+    QAction *act_acc = new QAction;
+    act_acc->setIcon(QIcon(QString("%1/src/img/acc.png").arg(QCoreApplication::applicationDirPath())));
+    ui->lineEdit_acc->addAction(act_acc,QLineEdit::TrailingPosition);
+    QAction *act_pw = new QAction;
+    act_pw->setIcon(QIcon(QString("%1/src/img/pw.png").arg(QCoreApplication::applicationDirPath())));
+    ui->lineEdit_pw->addAction(act_pw,QLineEdit::TrailingPosition);
 }
 
 Login::~Login()

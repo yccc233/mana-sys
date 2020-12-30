@@ -36,6 +36,18 @@ Teacher::Teacher(QWidget *parent, QString id) :
                            );
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
+    //搜索栏图标
+    QAction *act = new QAction;
+    act->setIcon(QIcon(QString("%1/src/img/search.png").arg(QCoreApplication::applicationDirPath())));
+    ui->lineEdit->addAction(act,QLineEdit::TrailingPosition);
+
+    //申明下拉框
+    mod = new QStandardItemModel(0,1,this);
+    ui->lineEdit->setCompleter(new QCompleter(mod,this));
+
+    query->exec("select stu_id from stu_score;");
+    while(query->next())
+        linelist.append(query->value(0).toString());
 }
 
 Teacher::~Teacher()
@@ -90,6 +102,8 @@ void Teacher::on_pushButton_info_clicked()
 
 void Teacher::on_tableView_doubleClicked(const QModelIndex &index)
 {
+    if(index.column() < 3)
+        return;
     bool isOk;
     QString ipAdress = QInputDialog::getText(NULL,"修改","输入修改后的值",QLineEdit::Normal,
                                              model->index(index.row(),index.column()).data().toString(),&isOk);
@@ -112,5 +126,17 @@ void Teacher::on_lineEdit_textChanged(const QString &arg1)
     if(arg1.isEmpty())
     {
         showStuScore();
+    }
+    else
+    {
+        mod->removeRows(0,mod->rowCount());
+        for(int i=0;i<linelist.size();i++)
+        {
+            if(linelist[i].contains(arg1))
+            {
+                mod->insertRow(0);
+                mod->setData(mod->index(0,0),linelist[i]);
+            }
+        }
     }
 }

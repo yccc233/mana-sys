@@ -10,6 +10,9 @@
 #include <QVariant>
 #include <QSqlRecord>
 #include <QInputDialog>
+#include <QAction>
+#include <QStandardItemModel>
+#include <QCompleter>
 
 namespace Ui {
 class Teacher;
@@ -48,6 +51,8 @@ private:
     QSqlTableModel *model;
     QSqlQuery * query;
     QSqlRecord teach_record;
+    QStandardItemModel *mod;
+    QStringList linelist;
 };
 
 #endif // TEACHER_H
