@@ -30,26 +30,23 @@ void Student::connectdb(QString dbname)
     }
 }
 
-void Student::setHeadData(QStringList heads,QVector<int> sizes)
+void Student::setHeadData(QStringList heads)
 {
     for(int i=0;i<heads.size();i++)
         model->setHeaderData(i,Qt::Horizontal,heads[i]);
-    for(int i=0;i<sizes.size();i++)
-        ui->tableView->setColumnWidth(i,sizes[i]);
 }
 
 void Student::on_radioButton_info_clicked()
 {
     QStringList heads;
     heads << "id" << "学号" << "姓名" << "性别";
-    QVector<int> sizes;
-    sizes << 80 << 80 << 80 << 40;
+
 
     model->setTable("stu_info");
     model->setFilter(QString("stu_id=%1").arg(id));
     model->select();
 
-    setHeadData(heads,sizes);
+    setHeadData(heads);
 }
 
 void Student::on_radioButton_score_clicked()
@@ -63,7 +60,7 @@ void Student::on_radioButton_score_clicked()
     model->setFilter(QString("stu_id=%1").arg(id));
     model->select();
 
-    setHeadData(heads,sizes);
+    setHeadData(heads);
 }
 
 void Student::on_pushButton_back_clicked()

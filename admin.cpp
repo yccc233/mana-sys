@@ -39,26 +39,20 @@ void Admin::showAccMsg()
 void Admin::setHeadData()
 {
     QStringList heads;
-    QVector<int> sizes;
     if(ui->radioButton_stu->isChecked())
     {
         heads << "id" << "学号" << "学生姓名" << "性别";
-        sizes << 80 << 80 << 80 << 40;
     }
     else if(ui->radioButton_tea->isChecked())
     {
         heads << "id" << "教师号" << "姓名" << "性别" << "电话" << "授课";
-        sizes << 80 << 80 << 80 << 40 << 100 << 50;
     }
     else
     {
         heads << "id" << "账号" << "密码";
-        sizes << 80 << 80 << 80;
     }
     for(int i=0;i<heads.size();i++)
         model->setHeaderData(i,Qt::Horizontal,heads[i]);
-    for(int i=0;i<sizes.size();i++)
-        ui->tableView->setColumnWidth(i,sizes[i]);
 }
 
 void Admin::on_pushButton_back_clicked()

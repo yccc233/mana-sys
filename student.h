@@ -30,7 +30,7 @@ private slots:
 
     void on_pushButton_back_clicked();
 
-    void setHeadData(QStringList heads, QVector<int> sizes);
+    void setHeadData(QStringList heads);
 
 private:
     Ui::Student *ui;

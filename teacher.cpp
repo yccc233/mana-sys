@@ -72,13 +72,9 @@ void Teacher::showStuScore()
 void Teacher::setHeadData()
 {
     QStringList heads;
-    QVector<int> sizes;
     heads << "id" << "学生学号" << "科目" << "成绩";
-    sizes << 80 << 80 << 40 << 40;
     for(int i=0;i<heads.size();i++)
         model->setHeaderData(i,Qt::Horizontal,heads[i]);
-    for(int i=0;i<sizes.size();i++)
-        ui->tableView->setColumnWidth(i,sizes[i]);
 }
 
 void Teacher::connectdb(QString dbname)
